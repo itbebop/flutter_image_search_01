@@ -8,11 +8,9 @@
 		"body": [
 		
 		"ChangeNotifierProvider(",
-			"create: (BuildContext context) {",
-				"return $0 (),",
-			"},",
-			"child: $1",
-		"),"
+			"create: () => ${0} ",
+			"child: ${1}",
+		")"
 		
 		]
 	},
