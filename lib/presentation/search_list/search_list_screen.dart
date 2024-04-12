@@ -14,18 +14,30 @@ class SearchListScreen extends StatefulWidget {
 
 class _SearchListScreenState extends State<SearchListScreen> {
   final _queryTextEditingController = TextEditingController();
-  void updateUI() => setState(() {});
 
   @override
   void initState() {
-    widget.viewModel.addListener(updateUI);
+    Future.microtask(() {
+      final viewModel = context.read<SearchListViewModel>();
+      viewModel.fetchPhoto();
+    });
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    widget.viewModel.fetchPhoto();
+    super.didChangeDependencies();
+  }
+
+  @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
   }
 
   @override
   void dispose() {
     _queryTextEditingController.dispose();
-    widget.viewModel.removeListener(updateUI);
     super.dispose();
   }
 
@@ -68,11 +80,6 @@ class _SearchListScreenState extends State<SearchListScreen> {
             ),
           ))
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          SearchListViewModel(photoRepositoryImpl: PhotoRepositoryImpl(photoDataSource: PhotoDataSource())).onSearch('query');
-        },
       ),
     );
   }

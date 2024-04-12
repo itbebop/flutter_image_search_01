@@ -14,15 +14,15 @@ class SearchListViewModel with ChangeNotifier {
   List<Photo> _photo = [];
 
   List<Photo> get photo => List.unmodifiable(_photo);
+
   void fetchPhoto() async {
     _photo = await _photoRepositoryImpl.getPhotos('');
-    print('photo : $_photo');
+    print('fetch = $_photo');
     notifyListeners();
   }
 
   void onSearch(String query) async {
     _photo = await _photoRepositoryImpl.getPhotos(query);
-    print('1111');
     notifyListeners();
   }
 }

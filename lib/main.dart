@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: ChangeNotifierProvider(
-        create: (_) => SearchListViewModel(
+        create: (BuildContext context) => SearchListViewModel(
             photoRepositoryImpl: PhotoRepositoryImpl(
           photoDataSource: PhotoDataSource(),
         )),
