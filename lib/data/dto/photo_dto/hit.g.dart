@@ -6,7 +6,7 @@ part of 'hit.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Hit _$HitFromJson(Map<String, dynamic> json) => Hit(
+Hits _$HitFromJson(Map<String, dynamic> json) => Hits(
       id: json['id'] as int?,
       pageUrl: json['pageURL'] as String?,
       type: json['type'] as String?,
@@ -31,7 +31,7 @@ Hit _$HitFromJson(Map<String, dynamic> json) => Hit(
       userImageUrl: json['userImageURL'] as String?,
     );
 
-Map<String, dynamic> _$HitToJson(Hit instance) => <String, dynamic>{
+Map<String, dynamic> _$HitToJson(Hits instance) => <String, dynamic>{
       'id': instance.id,
       'pageURL': instance.pageUrl,
       'type': instance.type,

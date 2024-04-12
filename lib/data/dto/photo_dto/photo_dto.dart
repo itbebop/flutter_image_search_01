@@ -9,7 +9,7 @@ part 'photo_dto.g.dart';
 class PhotoDto {
   int? total;
   int? totalHits;
-  List<Hit>? hits;
+  List<Hits>? hits;
 
   PhotoDto({this.total, this.totalHits, this.hits});
 

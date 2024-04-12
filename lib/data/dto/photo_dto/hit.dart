@@ -1,9 +1,10 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:json_annotation/json_annotation.dart';
 
 part 'hit.g.dart';
 
 @JsonSerializable()
-class Hit {
+class Hits {
   int? id;
   @JsonKey(name: 'pageURL')
   String? pageUrl;
@@ -33,7 +34,7 @@ class Hit {
   @JsonKey(name: 'userImageURL')
   String? userImageUrl;
 
-  Hit({
+  Hits({
     this.id,
     this.pageUrl,
     this.type,
@@ -58,7 +59,12 @@ class Hit {
     this.userImageUrl,
   });
 
-  factory Hit.fromJson(Map<String, dynamic> json) => _$HitFromJson(json);
+  factory Hits.fromJson(Map<String, dynamic> json) => _$HitFromJson(json);
 
   Map<String, dynamic> toJson() => _$HitToJson(this);
+
+  @override
+  String toString() {
+    return 'Hits(id: $id, pageUrl: $pageUrl, type: $type, tags: $tags, previewUrl: $previewUrl, previewWidth: $previewWidth, previewHeight: $previewHeight, webformatUrl: $webformatUrl, webformatWidth: $webformatWidth, webformatHeight: $webformatHeight, largeImageUrl: $largeImageUrl, imageWidth: $imageWidth, imageHeight: $imageHeight, imageSize: $imageSize, views: $views, downloads: $downloads, collections: $collections, likes: $likes, comments: $comments, userId: $userId, user: $user, userImageUrl: $userImageUrl)';
+  }
 }

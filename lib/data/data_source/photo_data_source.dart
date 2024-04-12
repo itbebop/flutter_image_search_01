@@ -8,6 +8,7 @@ class PhotoDataSource {
 
   Future<PhotoDto> getPhotoResult(String query) async {
     final response = await http.get(Uri.parse('$_baseUrl?key=36206009-fe028570b3c99a317c543088c&q=$query&image_type=photo'));
+
     return PhotoDto.fromJson(jsonDecode(response.body));
   }
 }

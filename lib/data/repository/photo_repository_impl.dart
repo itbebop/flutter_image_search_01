@@ -15,7 +15,7 @@ class PhotoRepositoryImpl implements PhotoRepository {
   Future<List<Photo>> getPhotos(String query) async {
     // await 주의1
     final dto = await _photoDataSource.getPhotoResult(query);
-
+    print(dto.hits);
     if (dto.hits == null) {
       return [];
     }

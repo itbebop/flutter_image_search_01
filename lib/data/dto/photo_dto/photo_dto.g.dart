@@ -9,9 +9,7 @@ part of 'photo_dto.dart';
 PhotoDto _$PhotoDtoFromJson(Map<String, dynamic> json) => PhotoDto(
       total: json['total'] as int?,
       totalHits: json['totalHits'] as int?,
-      hits: (json['hits'] as List<dynamic>?)
-          ?.map((e) => Hit.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      hits: (json['hits'] as List<dynamic>?)?.map((e) => Hits.fromJson(e as Map<String, dynamic>)).toList(),
     );
 
 Map<String, dynamic> _$PhotoDtoToJson(PhotoDto instance) => <String, dynamic>{
